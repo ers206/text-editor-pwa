@@ -9,3 +9,12 @@ butInstall.addEventListener('click', async () => {});
 
 // TODO: Add an handler for the `appinstalled` event
 window.addEventListener('appinstalled', (event) => {});
+
+
+// contact card doesnt have Install.js file has 
+// cards 
+// db 
+// form 
+// index 
+// submit 
+// sw(in root of src)
