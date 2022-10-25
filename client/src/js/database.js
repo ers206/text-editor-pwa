@@ -1,4 +1,5 @@
 import { openDB } from 'idb';
+import 'regenerator-runtime/runtime';
 
 const initdb = async () =>
   openDB('jate', 1, {
@@ -11,12 +12,71 @@ const initdb = async () =>
       console.log('jate database created');
     },
   });
+  
+  // TODO: Add logic to a method that accepts some content and adds it to the database
+  // TODO: Add logic for a method that gets all the content from the database
 
-// TODO: Add logic to a method that accepts some content and adds it to the database
-export const putDb = async (content) => console.error('putDb not implemented');
+  // export const putDb = async (content) => console.error('putDb not implemented');
+  
+  
+  // export const getDb = async () => console.error('getDb not implemented');
+  
+// from mod added getdb putdb and post db. not sure if i need post db
+export const getDb = async () => {
+  console.log('GET from the database');
 
-// TODO: Add logic for a method that gets all the content from the database
-export const getDb = async () => console.error('getDb not implemented');
+  // Create a connection to the database database and version we want to use.
+  const contactDb = await openDB('contact_db', 1);
+
+  // Create a new transaction and specify the store and data privileges.
+  const tx = contactDb.transaction('contacts', 'readonly');
+
+  // Open up the desired object store.
+  const store = tx.objectStore('contacts');
+
+  // Use the .getAll() method to get all data in the database.
+  const request = store.getAll();
+
+  // Get confirmation of the request.
+  const result = await request;
+  console.log('result.value', result);
+  return result;
+};
+
+export const putDb = async (id, name, email, phone, profile) => {
+  console.log('PUT to the database');
+
+  const contactDb = await openDB('contact_db', 1);
+
+  const tx = contactDb.transaction('contacts', 'readwrite');
+
+  const store = tx.objectStore('contacts');
+  
+  const request = store.put({ id: id, name: name, email: email, phone: phone, profile: profile });
+  const result = await request;
+  console.log('🚀 - data saved to the database', result);
+};
+
+// not sure if i need postdb 
+export const postDb = async (name, email, phone, profile)  => {
+  console.log('Post to the database');
+
+  // Create a connection to the database database and version we want to use.
+  const contactDb = await openDB('contact_db', 1);
+
+  // Create a new transaction and specify the store and data privileges.
+  const tx = contactDb.transaction('contacts', 'readwrite');
+
+  // Open up the desired object store.
+  const store = tx.objectStore('contacts');
+
+  // Use the .add() method on the store and pass in the content.
+  const request = store.add({ name: name, email: email, phone: phone, profile: profile});
+
+  // Get confirmation of the request.
+  const result = await request;
+  console.log('🚀 - data saved to the database', result);
+};
 
 initdb();
 

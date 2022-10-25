@@ -24,7 +24,7 @@ Made with ❤️ by Eric Schweitzer
 &copy; Schweitzer Enterprises
 
 
-Getting Started
+<!-- Getting Started
 For this project, you will not be starting from scratch. Just like the module project, you will be provided starter code.
 
 To build on the skills learned in Lesson 2, you will work with webpackLinks to an external site., a module bundler for JavaScript that simplifies front-end web development to bundle JavaScript, and the webpack's HTMLWebpackPluginLinks to an external site. to generate an HTML page.
@@ -33,7 +33,7 @@ You will also use IndexedDB and idbLinks to an external site., a small wrapper t
 
 To add offline functionality, you will use WorkboxLinks to an external site., which is a set of libraries that can generate a production-ready service worker for your Progressive Web App. Service workers were covered in Lesson 4.
 
-Finally, in Lesson 5, you learned how to make your app installable and deploy in production mode. For this project, you will practice those skills by adding a manifest.json and then deploying your finished application with Heroku.
+Finally, in Lesson 5, you learned how to make your app installable and deploy in production mode. For this project, you will practice those skills by adding a manifest.json and then deploying your finished application with Heroku. -->
 
 <!-- AS A developer
 I WANT to create notes or code snippets with or without an internet connection
